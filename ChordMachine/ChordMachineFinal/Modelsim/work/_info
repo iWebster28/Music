@@ -1,0 +1,31 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/intelFPGA_lite/18.1/Projects/ChordMachine2/Modelsim
+vshiftReg4bit
+!s110 1574814547
+!i10b 1
+!s100 `;8YE97lHJAGz_M@9<TWa0
+II1Ek]`n8Eh:5>JOcEnDY01
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1574813688
+8ChordMachine2Model.v
+FChordMachine2Model.v
+L0 3
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1574814547.000000
+!s107 ChordMachine2Model.v|
+!s90 -reportprogress|300|ChordMachine2Model.v|
+!i113 1
+tCvgOpt 0
+nshift@reg4bit
