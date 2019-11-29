@@ -41,7 +41,6 @@ output		[6:0]	hex6;
 output		[6:0]	hex7;
 output [9:0] ledr;
 
-//CHECKKKKKKKKKKKKKKKKKKKKKKK!!!!!!
 output [17:0] keyBusOut;
 
 assign keyBusOut = keyBus;
@@ -74,13 +73,12 @@ wire [9:0] ledBus = {8'b00000000, keyReg};
 wire [17:0] keyBus = keyReg; //these are the new SW[9:0] - or could just trigger their own wave generation modules (for higher pitches).
 //assign LEDR[9:0] = ledBus;
  
- 
- //Latching version
+//LOGIC TO CHECK FOR KEYPRESS AND STORE "1" in KEYBUS[x] AND STORE UNTIL ANY KEY IS RELEASED.
  always @(posedge ps2_key_pressed) //Make sure to run everytime there's an update on a key press (or break code, or letter after break code).
  begin
-	case (ps2_key_data) //was ps2_key_data
+	case (ps2_key_data) 
 	 'h1C: begin //A
-		if (exit == 0) begin //don't think this works. Because after the break code, 1C appears again...
+		if (exit == 0) begin
 			keyReg[17:0] = 0;
 			keyReg[0] = 1; //A
 		end
@@ -216,40 +214,16 @@ wire [17:0] keyBus = keyReg; //these are the new SW[9:0] - or could just trigger
 	  end
 	endcase
  end
- 
- 
- /*
-always @(posedge CLOCK_50)
-begin
-	if (KEY[0] == 1'b0)
-		last_data_received <= 8'h00;
-	else if (ps2_key_pressed == 1'b0)
-		ledReg <= 0; //Clear all outputs if ALL keys released.
-	else if (ps2_key_data == 'h1C) //Check for 'A' keypress
-		ledReg[0] <= 1'b1;
-	else if (ps2_key_pressed == 1'b1)
-		last_data_received <= ps2_key_data;
-end*/
- 
-//wire ledBus = LEDR[0];
 
-
+/*
 always @(posedge clk)
 begin
 	if (key[0] == 1'b0)
 		last_data_received <= 8'h00;
 	else if (ps2_key_pressed == 1'b1)
 		last_data_received <= ps2_key_data;
-end
-
-/*
-always @(posedge CLOCK_50)
-begin
-	if (ps2_key_data == 'hF0) //if break code seen: (problem: this will cut of the sound from A even when another key is released)
-		last_data_received <= 8'h00;
-	else if (ps2_key_data == 'h1C) ///if A was pressed: 
-		last_data_received <= ps2_key_data;
 end*/
+
 
 
 /*****************************************************************************
