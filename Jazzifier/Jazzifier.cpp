@@ -1,3 +1,7 @@
+//Ian Webster
+//Jazzifier
+//Aug 2019
+
 #include <iostream>
 
 using namespace std;
@@ -25,7 +29,7 @@ int main()
     char answer;
     cout << "This application will randomly generate a jazz standard" << endl;
     cout << "First, the application will generate random root notes." << endl;
-    cout << "It will then generate the type of chord modifier (7th, o7, ø7, maj7, min7, 9, 13, sus2, sus4) " << endl;
+    cout << "It will then generate the type of chord modifier (7th, o7, Ã¸7, maj7, min7, 9, 13, sus2, sus4) " << endl;
     cout << "The form may range from 12 bars to 32 bars" << endl;
     cout << "You could also specify to create a blues in a certain key." << endl;
     cout << "Note: * means half-diminished" << endl;
@@ -71,7 +75,7 @@ int main()
 void randChord() {
     char notes[7] = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
     char sharpFlat[2] = {'#', 'b'}; //For note, and chord spice modifier
-    char chordType[5] = {'m', 'M', '*', 'o', '+'}; //ø = *
+    char chordType[5] = {'m', 'M', '*', 'o', '+'}; //Ã¸ = *
     int chordDegree[5] = {6, 7, 9, 11, 13};
     int spiceModifiers[4] = {6, 9, 11, 13};
     int numSpices = 0;
